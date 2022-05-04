@@ -1,0 +1,133 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+h1 {
+  font-family: Georgia, 'Times New Roman', serif, Times, serif, sans-serif;
+  color: #ae82cc;
+  
+}
+
+
+
+
+/* Header */
+
+
+/* Main */
+body {
+  background-image: url("../assets/bgstar.gif");
+  background-repeat: repeat;
+  background-size: auto;
+  
+}
+
+.content,
+footer {
+  display: flex;
+  flex: 1;
+  position: relative;
+  flex-direction: column;
+  padding: 200px 100px 3;
+  align-items: center;
+}
+
+.content__logo {
+  height: 700px;
+}
+
+.logo {
+  height: 20px;
+  width: 20px;
+  margin-top: 10px;
+
+
+}
+
+.botoes {
+  bottom: 35px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-grow: inherit;
+  align-self: center;
+  gap: 10px;
+}
+
+.tela {
+  top: 150px;
+  position: absolute;
+  flex-direction: row;
+  flex-grow: inherit;
+  align-self: center;
+  gap: 10px;
+  width: 500px;
+  text-align: center;
+}
+
+.btn_hs {
+  width: 5rem;
+  height: 5rem;
+
+}
+span {
+  font-family: Georgia, 'Times New Roman', serif, Times, serif, sans-serif;
+  color: #ae82cc;
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  transition-timing-function: ease-in-out
+
+}
+:root {
+  --color1: #debbff;
+  --color2: #ff34bb;
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 100%;
+    color: var(--color1);
+  }
+
+  50% {
+    opacity: 100%;
+    color: var(--color2);
+  }
+
+  100% {
+    opacity: 100%;
+    color: var(--color1);
+  }
+}
+
+
+
+.content__offer {
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+a {
+  text-decoration: transparent
+}
+
+/* Footer */
+
+/* Media Query */
+
+@media (min-width: 1063px) {
+  .content {
+    padding-top: 12px;
+  }
+
+  .content__logo {
+    height: 460px;
+  }
+}

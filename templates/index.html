@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stay Happy</title>
+
+  <link rel="back" href="programa_feliz_piada.py" />
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+</head>
+
+<body>
+  <header>
+  </header>
+
+  <main class="content">
+    <h1 id="tela" class="tela">Olá, como você está se sentindo hoje?</h1>
+    <img class="content__logo" src="{{ url_for('static', filename= 'assets/Background.png') }}" />
+
+    <div class="botoes">
+      <a href="#" onclick="gerarpiada()">
+        <img class="btn_hs" src="{{ url_for('static', filename= 'assets/happybottom.png') }}" />
+      </a>
+
+      <a href="#" onclick="naogerarpiada()">
+        <img class="btn_hs" src="{{ url_for('static', filename= 'assets/sadbottom.png') }}" />
+      </a>
+
+    </div>
+  </main>
+  <footer>
+
+    <div class="content__offer">
+      <span> Made with 💜 by Larissauro / 27.04.2022 - 03.05.2022 </span>
+    </div>
+
+    <div>
+      <a href="https://github.com/larissauro">
+        <img class="logo" src="{{ url_for('static', filename= 'assets/github.png') }}" />
+      </a>
+
+      <a href="https://www.instagram.com/larissaur0/">
+        <img class="logo" src="{{ url_for('static', filename= 'assets/insta.png') }}" />
+      </a>
+
+      <a href="https://twitter.com/larissaur0">
+        <img class="logo" src="{{ url_for('static', filename= 'assets/twitter.png') }}" />
+      </a>
+
+
+    </div>
+
+  </footer>
+
+  <script>
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    let executando = false
+
+    function gerarpiada() {
+      if (executando) return
+      const display = document.getElementById("tela")
+      display.innerHTML = "Que bom! Continue assim <3"
+    }
+
+
+    async function naogerarpiada() {
+      if (executando) return
+      executando = true
+      const display = document.getElementById("tela")
+      display.innerHTML = "Que pena... :("
+      await sleep(2000)
+      display.innerHTML = "Então vou te contar uma coisa engraçada!"
+      await sleep(3000)
+      display.innerHTML = "."
+      await sleep(1000)
+      display.innerHTML = ".."
+      await sleep(1000)
+      display.innerHTML = "..."
+      await sleep(1000)
+      const resposta = await fetch("/piada/new")
+      const msg = await resposta.json()
+      display.innerHTML = msg.piada
+      executando = false
+    }
+
+  </script>
+
+</body>
+
+</html>
