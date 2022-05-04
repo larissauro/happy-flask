@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from programa_feliz_piada import get_piada
+from gerador_piada import generate_piada
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def index():
 @app.route("/piada/new")
 def piada():
 	return 	{ 
-		'piada': get_piada()
+		'piada': generate_piada()
 	}
 
 if __name__ == "__main__":
